@@ -5,13 +5,14 @@ xuanfu()
 while(times < 35) {
     sleep(1500)
     times = times + 1
-    向下滑动()
-    sleep(1800)
-    back()
     console.log("看第" + times + "篇")
+    向下滑动()
+    sleep(random(1500,2500))
+    console.log("随机等待～")
+    back()
     sleep(4000)
 }
-
+console.log("---运行结束---")
 
 function 向下滑动() {
     sleep(2000)
