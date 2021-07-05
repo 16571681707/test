@@ -13,7 +13,7 @@ while(true){
 
 function 定时() {
     
-    var mm = 120;  //设置分钟数
+    var mm = 125;  //设置分钟数,多5分钟
     var y = mm * 1000 * 60;  //将分钟转变为毫秒
     console.log("开始" + mm + "分钟阅读")
     sleep(1500)
