@@ -33,7 +33,27 @@ var shuaxin = 0
 var w = device.width
 var h = device.height
 app.launchApp("乐挖")
+console.log("随机等待12～15s")
+sleep(random(12000,15000))
+if(text("我知道了").findOnce()){
+    sleep(800)
+    console.log("点击 我知道了")
+    text("我知道了").click()
+    sleep(1000)
+}
 wait("红包收益")
+
+threads.start(function(){
+    while(true){
+        if(text("取消").findOnce()) {
+            sleep(random(1000,1500))
+            console.log("安装界面，等待返回。。。。")
+            text("取消").click()
+            sleep(1500)
+            //刷新界面()
+        }
+    }
+})
 while(true) {
     if(text("可领取").findOnce()) {
         sleep(random(1000,1500))
@@ -138,13 +158,7 @@ while(true) {
         sleep(1500)
         刷新界面()
     }
-    if(text("取消").findOnce()) {
-        sleep(random(1000,1500))
-        console.log("安装界面，等待返回。。。。")
-        text("取消").click()
-        sleep(1500)
-        刷新界面()
-    }
+
     if(id("com.cn.android.Le.to.dig:id/dy_back_iv").findOnce() && !textContains("矿石").findOnce()) {
         sleep(1500)
         console.log("游戏界面，等待返回，，，")
