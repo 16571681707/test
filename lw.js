@@ -10,6 +10,11 @@ xuanfu()
 判断时间()
 threads.start(function() {
     var stoptimes = 30 //定义挂机时间（分）
+    var model = device.model // 获取手机型号
+    console.info("手机型号：" + model)
+    if(model == "DUA-TL00"){
+        stoptimes = 50  // 荣耀机型加时
+    }
     var stop = stoptimes * 1000 * 60 //将定义的时间转换成分钟
     toastLog("挂机时间为：" + stoptimes + "分钟")
     setTimeout(function() {
@@ -133,6 +138,13 @@ while(true) {
         sleep(1500)
         刷新界面()
     }
+    if(text("取消").findOnce()) {
+        sleep(random(1000,1500))
+        console.log("安装界面，等待返回。。。。")
+        text("取消").click()
+        sleep(1500)
+        刷新界面()
+    }
     if(id("com.cn.android.Le.to.dig:id/dy_back_iv").findOnce() && !textContains("矿石").findOnce()) {
         sleep(1500)
         console.log("游戏界面，等待返回，，，")
@@ -163,6 +175,16 @@ while(true) {
         back()
         sleep(500)
         while(text("购物赚矿石").findOnce() && desc("平台用户信息安全由").findOnce()){
+            back()
+        }
+        刷新界面()
+    }
+    if(text("乐挖游戏").findOnce() ) {
+        sleep(random(1000,1500))
+        console.log("乐挖游戏界面，返回。。。。")
+        back()
+        sleep(500)
+        while(text("乐挖游戏").findOnce() ){
             back()
         }
         刷新界面()
