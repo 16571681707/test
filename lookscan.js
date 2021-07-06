@@ -1,7 +1,7 @@
 var times = 0
 
 xuanfu()
-#test
+
 while(times < 35) {
     sleep(1500)
     times = times + 1
