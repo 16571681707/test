@@ -140,8 +140,8 @@ function 元宝数() {
     // var 元宝 = className("android.view.View").depth(13).drawingOrder(0).bounds(69,303,339,456).findOnce().getText()
     //魅蓝  
     // var 元宝 = className("android.view.View").depth(9).drawingOrder(0).bounds(46,182,226,284).findOnce().getText()  
-    if(className("android.view.View").depth(13).drawingOrder(0).indexInParent(1).findOnce()) {
-        var 元宝 = className("android.view.View").depth(13).drawingOrder(0).indexInParent(1).findOnce().getText()
+    if(className("android.view.View").depth(14).drawingOrder(0).indexInParent(0).findOnce()) {
+        var 元宝 = className("android.view.View").depth(14).drawingOrder(0).indexInParent(0).findOnce().getText()
     } 
     // else {
     //     var 元宝 = className("android.view.View").depth(13).drawingOrder(0).bounds(46,182,226,284).findOnce().getText()  
@@ -401,9 +401,19 @@ function 关闭应用(str) {
         if(text("强行停止").findOnce()) {
             text("强行停止").click()
             sleep(1500)
-            text("确定").click() //点击强行关闭后弹出的确认框
-            console.log("关闭应用")
-            break
+            if(text("确定").findOnce()){
+                text("确定").click() //点击强行关闭后弹出的确认框
+                sleep(1000)
+                console.log("关闭应用")
+                break
+            }
+            if(text("强行停止").findOnce()){
+                text("强行停止").click()
+                sleep(1000)
+                console.log("关闭应用")
+                break
+            }
+            
         }
     }
 }
