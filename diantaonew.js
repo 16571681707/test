@@ -87,9 +87,9 @@ function 打开应用() {
     }
     等待时间(5)
     sleep(random(2000,4500))
-    if(text("点击签到").findOnce()) {
-        等待时间(5)
-        点击不可点击文本("点击签到")
+    if(text("立即签到").findOnce()) {
+        sleep(1500)
+        点击不可点击文本("立即签到")
         console.log("签到")
         sleep(random(1500,3000))
         wait("20:00-24:00")
@@ -163,6 +163,7 @@ function 元宝数() {
     }
     console.log("元宝数已存放在" + path + "中")
     toast("当前共有元宝：" + 元宝)
+    console.log("当前共有元宝：" + 元宝)
 }
 
 //走路赚钱
