@@ -212,8 +212,9 @@ function 走路赚钱() {
                                 break
                             }
                         }else {
-                            sleep(random(2000,45000))
+                            sleep(random(2000,4500))
                             滑动看视频()
+                            sleep(random(2000,4500))
                         }
                         if(text("领取").findOnce()){
                             sleep(random(1500,2500))
@@ -597,6 +598,7 @@ function 滑动看视频() {
     var times = random(1500,2500)
     swipe(width / 2, height / 2 + 100, width / 2 - suiji, end, times)
     sleep(3000)
+    console.log("看视频")
 }
 
 
