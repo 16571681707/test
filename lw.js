@@ -50,6 +50,16 @@ while(true) {
         delay = time * 1000
         sleep(delay)
     }
+    if(text("领取5矿石").findOnce()) {
+        sleep(random(1000,1500))
+        console.log("领取5矿石")
+        点击不可点击文本("领取5矿石")
+        time = random(4,7) 
+        kuangshi = kuangshi + 10
+        console.log("等待："+ time + "s")
+        delay = time * 1000
+        sleep(delay)
+    }
     if(text("领取30矿石").findOnce()) {
         sleep(random(1000,1500))
         console.log("领取30矿石")
@@ -143,6 +153,16 @@ while(true) {
         back()
         sleep(500)
         while(text("购物赚矿石").findOnce() && text("购物教程").findOnce()){
+            back()
+        }
+        刷新界面()
+    }
+    if(text("购物赚矿石").findOnce() && desc("平台用户信息安全由").findOnce()) {
+        sleep(random(1000,1500))
+        console.log("购物界面，返回。。。。")
+        back()
+        sleep(500)
+        while(text("购物赚矿石").findOnce() && desc("平台用户信息安全由").findOnce()){
             back()
         }
         刷新界面()
