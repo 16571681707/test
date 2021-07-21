@@ -240,8 +240,8 @@ function 向下滑动() {
     var width = device.width
     var height = device.height
     var suiji = parseInt(Math.random() * 160)
-    var end = parseInt(Math.random() * 560)
-    swipe(width / 2, height - 400, width / 2 - suiji, end, 7000)
+    var end = parseInt(Math.random() * 300)
+    swipe(width / 2, height - 300, width / 2 - suiji, end, 7000)
     sleep(3000)
 }
 
