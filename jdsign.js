@@ -9,16 +9,19 @@ wait("我的")
 sleep(500)
 点击不可点击文本("我的")
 wait("京豆") 
-sleep(200)
+sleep(900)
 点击不可点击文本("京豆")
-
-sleep(1500)
+wait("我的京豆")
+sleep(2500)
 if(textContains("去签到").findOnce()){
+    点击包含文本("去签到")
+    console.log("去签到")
     点击包含文本("去签到")
     sleep(random(1500,2000))
 }
 if(textContains("已签到").findOnce()){
     点击包含文本("已签到")
+    console.log("已签到")
     sleep(random(1500,2000))
 }
 
