@@ -197,7 +197,7 @@ function 走路赚钱() {
                 console.log("看视频赚步数")
                 sleep(random(2000,4500))
                 console.log("等待进入看直播界面")
-                id("com.taobao.live:id/iv_comment").waitFor()
+                id("com.taobao.live:id/task_center_action").waitFor()
                 sleep(2500)
                 console.log("进入直播界面")
                 if(id("com.taobao.live:id/iv_comment").findOnce() || text("关注").findOnce()) {
@@ -207,7 +207,7 @@ function 走路赚钱() {
                             console.log("即将开始下一次任务")
                             sleep(random(2000,3500))
                             back()
-                            sleep(1500)
+                            sleep(2500)
                             if(text("继续做任务").findOnce()){
                                 sleep(random(1500,2500))
                                 点击不可点击文本("继续做任务")
