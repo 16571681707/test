@@ -28,7 +28,7 @@ if(textContains("已签到").findOnce()){
 点击包含文本("签到")
 console.log("签到成功")
 sleep(random(3500,5000))
-var 升级赚京豆 = className("android.view.ViewGroup").depth(16).drawingOrder(13).indexInParent(12).findOnce().bounds()
+var 升级赚京豆 = className("android.view.ViewGroup").depth(16).drawingOrder(14).indexInParent(13).findOnce().bounds()
 // console.log(升级赚京豆)
 if(升级赚京豆){
     click(升级赚京豆.centerX(),升级赚京豆.centerY())
@@ -43,7 +43,7 @@ while(text("去完成").findOnce()){
     if(textContains("已签到").findOnce()){
         点击包含文本("已签到")
         sleep(random(3500,5000))
-        升级赚京豆 = className("android.view.ViewGroup").depth(16).drawingOrder(13).indexInParent(12).findOnce().bounds()
+        升级赚京豆 = className("android.view.ViewGroup").depth(16).drawingOrder(14).indexInParent(13).findOnce().bounds()
         // console.log(升级赚京豆)
         if(升级赚京豆){
             click(升级赚京豆.centerX(),升级赚京豆.centerY())
