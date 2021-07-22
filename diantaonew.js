@@ -1,4 +1,6 @@
-// update 2021.7.6
+
+
+// update 2021.7.22
 
 // 打开应用()
 xuanfu()
@@ -22,32 +24,51 @@ function 步数() {
         }
     }
     while(true) {
-        if(text("领取").findOnce()) {
-            sleep(random(1500,2500))
-            text("领取").click()
-            sleep(random(2000,3500))
-            if(textContains("再得").findOnce()) {
-                textContains("再得").click()
-                sleep(random(2000,3500))
-                while(true) {
-                    if(!id("com.taobao.live:id/task_center_action").findOnce()) {
-                        console.log("即将开始下一次任务")
-                        sleep(random(2000,3500))
-                        back()
-                        sleep(random(2000,3500))
-                        wait("规则")
-                        break
-                    }else {
-                        sleep(random(2000,45000))
-                        滑动看视频()
-                    }
+            var 领取s = text("领取").find()
+            if(领取s.size() > 1){
+                var 领取 = 领取s.get(1).bounds()
+            } else {
+                if(领取s.size() == 0){
+                    console.log("无可领取，即将结束。")
+                    break
+                } else{
+                    var 领取 = 领取s.get(0).bounds()
                 }
-                sleep(random(2000,3500))
             }
-        } else {
-            console.log("结束")
-            break
-        }
+            if(领取) {
+                sleep(random(1500,2500))
+                console.log("点击领取")
+                click(领取.centerX(),领取.centerY())
+                sleep(random(2000,3500))
+                if(textContains("再得").findOnce()) {
+                    textContains("再得").click()
+                    console.log("等待进入直播界面")
+                    sleep(random(2000,3500))
+                    id("com.taobao.live:id/task_center_action").waitFor()
+                    console.log("进入直播界面")
+                    sleep(900)
+                    while(true) {
+                        if(!id("com.taobao.live:id/task_center_action").findOnce()) {
+                            console.log("即将开始下一次任务")
+                            sleep(random(2000,3500))
+                            back()
+                            sleep(random(2000,3500))
+                            console.log("等待回到走路赚钱界面")
+                            wait("规则")
+                            console.log("回到走路赚钱界面")
+                            sleep(900)
+                            break
+                        }else {
+                            sleep(random(2000,45000))
+                            滑动看视频()
+                        }
+                    }
+                    sleep(random(2000,3500))
+                }
+            } else {
+                console.log("结束")
+                break
+            } 
     }
 }
 function 判断时间() {
@@ -196,10 +217,10 @@ function 走路赚钱() {
                 点击不可点击文本("去观看")
                 console.log("看视频赚步数")
                 sleep(random(2000,4500))
-                console.log("等待进入看直播界面")
+                console.log("等待进入直播界面")
                 id("com.taobao.live:id/task_center_action").waitFor()
-                sleep(2500)
                 console.log("进入直播界面")
+                sleep(900)
                 if(id("com.taobao.live:id/iv_comment").findOnce() || text("关注").findOnce()) {
                     while(true) {
                         sleep(random(2000,3500))
@@ -207,7 +228,6 @@ function 走路赚钱() {
                             console.log("即将开始下一次任务")
                             sleep(random(2000,3500))
                             back()
-                            sleep(2500)
                             if(text("继续做任务").findOnce()){
                                 sleep(random(1500,2500))
                                 点击不可点击文本("继续做任务")
@@ -655,4 +675,7 @@ function 看完视频关闭() {
     sleep(1000)
     back();
 }
+
+
+
 
