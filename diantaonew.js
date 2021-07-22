@@ -199,6 +199,7 @@ function 走路赚钱() {
                 console.log("等待进入看直播界面")
                 id("com.taobao.live:id/iv_comment").waitFor()
                 sleep(2500)
+                console.log("进入直播界面")
                 if(id("com.taobao.live:id/iv_comment").findOnce() || text("关注").findOnce()) {
                     while(true) {
                         sleep(random(2000,3500))
