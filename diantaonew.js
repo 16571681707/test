@@ -456,7 +456,28 @@ function 锁屏() {
     app.launchApp("一键锁屏")
     engines.stopAll();
 }
-
+function 检测app(name,url,str){
+    var appname = getPackageName(name)
+    if(appname == null){
+        toastLog("未安装该应用")
+        sleep(1500)
+        var download = confirm("是否去安装"+ name +"?")
+        if(download){
+            app.openUrl(url)
+            toastLog("正在去下载。。。")
+            sleep(1500)
+            toastLog("支持作者记得填下邀请码哦！")
+            setClip(str)
+            sleep(2000)
+            toastLog("邀请码已复制到剪切板")
+            sleep(1500)
+            exit()
+        }
+    } else {
+        toastLog("正在打开" + name )
+        sleep(500)
+    }
+}
 
 //悬浮窗
 //=====================================================
