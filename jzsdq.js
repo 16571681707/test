@@ -4,6 +4,13 @@
 
 
 xuanfu()
+检测app("金猪生大钱","https://a.app.qq.com/o/simple.jsp?pkgname=com.liziyuedong.goldpig",79552894)
+
+app.launchApp("金猪生大钱")
+toastLog("打开app，等待8～12s")
+随机等待(8,12)
+toastLog("如果app没有打开，请手动打开。。")
+sleep(1500)
 threads.start(
     function(){
         while(true){
@@ -142,6 +149,7 @@ function 关闭广告(){
     点击不可点击id("com.liziyuedong.goldpig:id/tt_bu_close")
     点击文本("参与互动，赢取奖励")
     点击文本("继续任务")
+    点击文本("无法关闭")
 }
 
 
@@ -181,6 +189,29 @@ function 锁屏() {
     engines.stopAll();
 }
 
+
+
+function 检测app(name,url,str){
+    var appname = getPackageName(name)
+    if(appname == null){
+        toastLog("未安装该应用")
+        sleep(1500)
+        var download = confirm("是否去安装"+ name +"?")
+        if(download){
+            app.openUrl(url)
+            toastLog("正在去下载。。。")
+            sleep(1500)
+            toastLog("支持作者记得填下邀请码哦！")
+            setClip(str)
+            sleep(2000)
+            toastLog("邀请码已复制到剪切板")
+            sleep(1500)
+        }
+    } else {
+        toastLog("正在打开" + appname )
+        sleep(500)
+    }
+}
 
 //悬浮窗
 //=====================================================
