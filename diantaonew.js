@@ -1,6 +1,4 @@
-
-
-// update 2021.7.22
+// update 2021.7.6
 
 // 打开应用()
 xuanfu()
@@ -209,7 +207,7 @@ function 走路赚钱() {
              等待时间(5)
          }
         if(text("赚步数").findOnce()) {
-            等待时间(5)
+            sleep(random(2500,4500))
             点击不可点击文本("赚步数")
             sleep(random(1500,2500))
             if(text("去观看").findOnce()) {
@@ -220,7 +218,7 @@ function 走路赚钱() {
                 console.log("等待进入直播界面")
                 id("com.taobao.live:id/task_center_action").waitFor()
                 console.log("进入直播界面")
-                sleep(900)
+                sleep(3500)
                 if(id("com.taobao.live:id/iv_comment").findOnce() || text("关注").findOnce()) {
                     while(true) {
                         sleep(random(2000,3500))
@@ -675,7 +673,4 @@ function 看完视频关闭() {
     sleep(1000)
     back();
 }
-
-
-
 
