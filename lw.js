@@ -283,6 +283,7 @@ function 检测app(name,url,str){
             sleep(2000)
             toastLog("邀请码已复制到剪切板")
             sleep(1500)
+            exit()
         }
     } else {
         toastLog("正在打开" + appname )
