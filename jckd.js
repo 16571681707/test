@@ -1,6 +1,7 @@
 
 
 xuanfu()
+检测app("晶彩看点","http://my.ys508.com/u/ZAbRM",54861911)
 app.launchApp("晶彩看点")
 toastLog("打开app，等待8～12s")
 随机等待(8,12)
@@ -34,22 +35,27 @@ for(var i=0; i< 43; i++){  //看文章3次
 toastLog("看文章结束")
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+function 检测app(name,url,str){
+    var appname = getPackageName(name)
+    if(appname == null){
+        toastLog("未安装该应用")
+        sleep(1500)
+        var download = confirm("是否去安装"+ name +"?")
+        if(download){
+            app.openUrl(url)
+            toastLog("正在去下载。。。")
+            sleep(1500)
+            toastLog("支持作者记得填下邀请码哦！")
+            setClip(str)
+            sleep(2000)
+            toastLog("邀请码已复制到剪切板")
+            sleep(1500)
+        }
+    } else {
+        toastLog("正在打开" + appname )
+        sleep(500)
+    }
+}
 
 function 关闭应用(str) {
     // sleep(5000)
@@ -232,7 +238,7 @@ function 稍向下滑动() {
     var suiji = parseInt(Math.random() * 160)
     var end = parseInt(Math.random() * 560)
     var time = random(2000,4500)
-    swipe(width / 2, height - 400, width / 2 - suiji, height - 900, time)
+    swipe(width / 2, height - 300, width / 2 - suiji, height - 900, time)
 }
 //滑动
 function 向下滑动() {
@@ -240,8 +246,8 @@ function 向下滑动() {
     var width = device.width
     var height = device.height
     var suiji = parseInt(Math.random() * 160)
-    var end = parseInt(Math.random() * 300)
-    swipe(width / 2, height - 300, width / 2 - suiji, end, 7000)
+    var end = parseInt(Math.random() * 560)
+    swipe(width / 2, height - 200, width / 2 - suiji, end, 7000)
     sleep(3000)
 }
 
