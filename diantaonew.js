@@ -91,6 +91,9 @@ function 打开应用() {
     app.launchApp("点淘")   //打开应用
     console.log("打开app 等待8～12s")
     sleep(random(8000,12000)) //打开应用等待8～12s
+    wait("视频")
+    console.log("进入app界面")
+    sleep(1500)
     if(text("视频").findOnce()) {
     click(device.width - 40, device.height - 10)
     console.log("点击 我的")
